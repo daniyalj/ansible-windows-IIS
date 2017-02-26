@@ -19,8 +19,10 @@
         include_sub_features: yes
         include_management_tools: yes
 
-    - name: Deploying website
-      win_copy: src=/etc/ansible/html/ dest=C:/inetpub/wwwroot
+    - name: Download WebPI
+      win_get_url:
+        url: 'https://raw.githubusercontent.com/daniyalj/ansible-windows-IIS/master/html/index.html'
+        dest: 'C:/inetpub/wwwroot/index.html'
       notify:
 
       - iis reset
@@ -36,5 +38,3 @@
       win_service:
         name: w3svc
         state: restarted
-
-
