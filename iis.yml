@@ -34,7 +34,7 @@
 
   handlers:
 
-    - name: w3svc reset
+    - name: iis reset
       win_service:
         name: w3svc
         state: restarted
